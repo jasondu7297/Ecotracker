@@ -1,19 +1,35 @@
 {% extends "main/base.html" %}
 {% load static %}
 
+{% block head_css %}
+{{ block.super }}
+<link href="{% static 'css/tracker.css' %}" rel="stylesheet" type="text/css">
+{% endblock head_css %}
+
+{% block navbar %}
+    <a class="nav-link first" aria-current="page" href="/">Home</a>
+    <a class="nav-link active second" href="/tracker">Tracker</a>
+    <a class="nav-link third" href="/vehicle">Vehicle Info</a>
+    <a class="nav-link fourth" href="/whatcanido">What Can I Do</a>
+{% endblock %}
+
 {% block content %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Simple Map</title>
-    <script src="../static/js/test.js"></script>
   </head>
   <body>
-    <div id="map"></div> -->
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgIWNVzeFWWr0ecFoBuEI-qDSyImx7cYk&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+    <div id='map'></div>
 {% endblock %}
+
+{% block footer_javascript %}
+    <script src="../static/js/tracker.js"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0KjJLF2X4ng7kEbBB7YxtZFbNy8kz-k&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
+{% endblock footer_javascript %}
+
+    

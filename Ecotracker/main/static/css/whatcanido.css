@@ -12,6 +12,9 @@ h1{
     font-family: 'MyWebFont';
 }
 
+.p1{
+    size: +7;
+}
 
 .section{
     position: absolute;

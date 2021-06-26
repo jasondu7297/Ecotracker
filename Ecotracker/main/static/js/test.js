@@ -82,7 +82,7 @@ function calcRoute(directionsService, directionsRenderer) {
          response.json()
         )
         .then(data => {
-          var target = document.getElementById('car_type');
+          var target = document.getElementById('car_type').value;
           for (let i = 0; i < data.length; ++i) {
             if (data[i]["vehicle_type"] == target) {
               emission = data[i]["emission"];

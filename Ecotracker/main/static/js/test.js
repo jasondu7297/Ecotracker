@@ -22,6 +22,16 @@ function initMap() {
     //directions Service
     var directionsService = new google.maps.DirectionsService();
 
+    // autocomplete for origin
+    var autoOptions = {
+      componentRestrictions: {country: 'us'},
+      fields: ["formatted_address", "geometry", "name"],
+      }
+
+    autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'), autoOptions
+      )
+
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
         calcRoute(directionsService, directionsRenderer)

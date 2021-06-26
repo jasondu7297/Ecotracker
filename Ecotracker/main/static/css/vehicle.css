@@ -7,18 +7,20 @@
 
 
 #background{
-    height: 2vw;
-    width: 2vw;
+    height: 60%;
+    width: 70%;
     position: absolute;
     top: 52.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(233, 179, 60);
-    padding-top: 10vw;
-    padding-left: 15vw;
-    border-radius: 12vw;
+    padding-top: 7%;
+    padding-left: 10%;
+    border-radius: 5px;
 }
 
-#carmodel{
-    
+#carouselExampleIndicators{
+    position: absolute;
+    height: 14%;
+    width: 34%;
 }

@@ -21,6 +21,7 @@
     <title>Simple Map</title>
   </head>
   <body>
+    <input id='autocomplete'/>
     <div id='map'></div>
         <div id="floating-panel">
         <b>Start: </b>
@@ -58,17 +59,16 @@
       <select id='routeOption'>
         <option value = '1'>Route 1</option>
         <option value = '2'>Route 2</option>
-        <!-- <option value = '3'>Route 3</option> -->
       </select>
-    <!-- <input id='origin'></input>
-    <input id='destination'></input> -->
+    
+
 
 {% endblock %}
 
 {% block footer_javascript %}
     <script src="../static/js/test.js"></script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0KjJLF2X4ng7kEbBB7YxtZFbNy8kz-k&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0KjJLF2X4ng7kEbBB7YxtZFbNy8kz-k&callback=initMap&libraries=places&v=weekly"
     async
   ></script>
 {% endblock footer_javascript %}

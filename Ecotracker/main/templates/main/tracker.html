@@ -1,6 +1,22 @@
-<script src="./static/js/tracker.js"></script>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="../static/js/test.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
 
-<div id='map'></div>
-<input id='autoOrigin' placeholder='Enter staring point'/>
-<input id='autoDestination' placeholder='Enter destination'/>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgIWNVzeFWWr0ecFoBuEI-qDSyImx7cYk&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
+
+
+
+
 

@@ -11,25 +11,25 @@ script.async = true;
 document.head.appendChild(script);
 
 // places
-var script = document.createElement('script');
-script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzI-JBDF-ZvAHmSrGCPmvcomdxfq--TBQ&libraries=places";
+// var script = document.createElement('script');
+// script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAzI-JBDF-ZvAHmSrGCPmvcomdxfq--TBQ&libraries=places";
 
-script.async = true;
+// script.async = true;
 
-// Append the 'script' element to 'head'
-document.head.appendChild(script);
+// // Append the 'script' element to 'head'
+// document.head.appendChild(script);
 
 function initMap() {
 
     //map 
-    var ottawa = new google.maps.LatLng(45.424721, -75.695000)
+    // var ottawa = new google.maps.LatLng(45.424721, -75.695000)
 
-    var mapOptions = {
-        zoom: 10, 
-        center: ottawa
-    }
+    // var mapOptions = {
+    //     zoom: 10, 
+    //     center: ottawa
+    // }
 
-    var map = new.google.maps.Map(document.getElementById('map'), mapOptions)
+    var map = new google.maps.Map(document.getElementById('map'))
 
     //directions Renderer
     var rendererOptions = {
@@ -43,28 +43,34 @@ function initMap() {
     //directions Service
     var directionsService = new google.maps.DirectionsService();
 
-    //autocomplete for origin
-    var autoOptions = {
-            componentRestrictions: { country: ['us'. 'ca'] },
-            fields: ["formatted_address", "geometry", "name"],
-    }
-    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autoOrigin'), autoOptions)
+    // autocomplete for origin
+    // var autoOptions = {
+    //       componentRestrictions: {country: 'us'},
+    //       fields: ["formatted_address", "geometry", "name"],
+    // }
+    
+  
+    // var autocompleteO = new google.maps.places.Autocomplete(document.getElementById('origin'), autoOptions)
 
-    autocomplete.addListener('place_changed', onPlaceChanged)
+    // autocompleteO.addListener('place_changed', onPlaceChanged)
 
-    function onPlaceChanged() {
-        var place = autocomplete.getPlace();
+    // var autocompleteD = new google.maps.places.Autocomplete(document.getElementById('destination'), autoOptions)
+
+    // autocompleteD.addListener('place_changed', onPlaceChanged)
+
+    // function onPlaceChanged() {
+    //     var place = autocomplete.getPlace();
         
-        // tests whether user selected a prediction or entered text that didnt result in a prediction 
-        if (!place.geometery) {
-            document.getElementById('autoOrigin').placeholder = 
-            'Please enter a starting point' ;
-        }
-        // if valid place
-        else { 
-            document.getElementById('autoDestination').innerHTML = place.name;
-        }
-    }
+    //     // tests whether user selected a prediction or entered text that didnt result in a prediction 
+    //     if (!place.geometery) {
+    //         document.getElementById('origin').placeholder = 
+    //         'Please enter a starting point' ;
+    //     }
+    //     // if valid place
+    //     else { 
+    //         document.getElementById('destination').innerHTML = place.name;
+    //     }
+    // }
 
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
@@ -72,14 +78,14 @@ function initMap() {
     };
 
     //listens for change in origin/destination
-    document.getElementById('origin').getEventListener('change', onChangePathHandler)
-    document.getElementById('destination').getEventListener('change', onChangePathHandler)
+    document.getElementById('origin').addEventListener('change', onChangePathHandler)
+    document.getElementById('destination').addEventListener('change', onChangePathHandler)
 
     //so that user can select alternate routes
-    const onChangeRouteHandler = function () {
-        alternateRoute(directionsService, directionsRenderer);
-    };
-        document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
+    // const onChangeRouteHandler = function () {
+    //     alternateRoute(directionsService, directionsRenderer);
+    // };
+    //     document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
 
 }
 

@@ -3,17 +3,6 @@
     src: url('../resources/bold.otf');
   }
 
-p{
-    font-family: 'kayak';
-}
-
-.intro{
-    position: absolute;
-    top: 140%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 body{
     background-color: #B8acd8;
     background-blend-mode: screen;
@@ -25,6 +14,17 @@ body{
 
 h1{
     font-family: 'MyWebFont';
+}
+
+p{
+    font-family: 'kayak';
+}
+
+.intro{
+    position: absolute;
+    top: 140%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #earth{

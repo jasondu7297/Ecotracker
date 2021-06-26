@@ -41,7 +41,7 @@
           </div>
         </div>
         <div id="model">
-          {{ forloop.counter }}
+          <model-viewer src="{{ vehicle.thumbnail }}" poster="static/resources/background_earth.png" id="vehicle" camera-controls auto-rotate auto-rotate-delay="2325" shadow-intensity="1" camera-orbit="-45deg 85deg 88%"</model-viewer>
         </div>
       </div>
     {% endfor %}

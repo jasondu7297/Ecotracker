@@ -16,19 +16,26 @@ body{
     margin-left: 15%;
     margin-bottom: 10%;
     border-width: 12%;
-
 }
 
+#vehicle{
+    width: 25vw;
+    height: 25vw;
+    position: absolute;
+    top: 38%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    max-height: 400%;
+    --poster-color: transparent;
+}
 
 #model{
-    border: black solid 4px;
     margin: 10%;
     width: 30%;
     height: 100px; 
     position: absolute;
     top: 10%;
 }
-
 
 .card{
     margin-left: 60%;

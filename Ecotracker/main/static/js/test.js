@@ -45,15 +45,24 @@ function initMap() {
         calcRoute(directionsService, directionsRenderer)
     };
 
+    //so that user can select alternate routes
+    const onChangeRouteHandler = function () {
+      alternateRoute(directionsService, directionsRenderer);
+
+    //so that user can select alternate routes
+    const onCarChange = function () {
+      diffCar();
+    }
+
     //listens for change in origin/destination
     autocompleteS.addListener('place_changed', onChangePathHandler)
     autocompleteE.addListener('place_changed', onChangePathHandler)
+    document.getElementById.addEventListener('change', onCarChange)
+    document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
 
-      //so that user can select alternate routes
-    const onChangeRouteHandler = function () {
-        alternateRoute(directionsService, directionsRenderer);
+
     };
-        document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
+        
 }
 
 // takes the user route and calculates the 2-3 best routes
@@ -86,7 +95,9 @@ function calcRoute(directionsService, directionsRenderer) {
           for (let i = 0; i < data.length; ++i) {
             if (data[i]["vehicle_type"] == target) {
               emission = data[i]["emission"];
-              break;
+              evImpact = emission * response.routes[0].legs[0].distance.value / 1000
+              console.log(evImpact) 
+              document.getElementById("test").innerHTML = 'Grams of CO2 per km: ' + evImpact;
             }
           }
           console.log(emission);
@@ -135,4 +146,24 @@ function alternateRoute (directionsService, directionsRenderer) {
       
     }
   })
+}
+
+function onCarChange () {
+  console.log('Hi')
+  // let emission = 0;
+  //       // render map
+  //       fetch('/cereal')
+  //       .then(response =>
+  //        response.json()
+  //       )
+  //       .then(data => {
+  //         var target = document.getElementById('car_type').value;
+  //         for (let i = 0; i < data.length; ++i) {
+  //           if (data[i]["vehicle_type"] == target) {
+  //             emission = data[i]["emission"];
+  //             evImpact = emission * response.routes[0].legs[0].distance.value / 1000
+  //             console.log(evImpact) 
+  //             document.getElementById("test").innerHTML = 'Grams of CO2 per km: ' + evImpact;
+  //           }
+  //         console.log(emission);
 }

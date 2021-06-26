@@ -22,7 +22,8 @@ def tracker(response):
     return render(response, "main/tracker.html")
 
 def vehicle(response):
-    return render(response, "main/vehicle.html")
+    vehicles = Automobile.objects.all()
+    return render(response, "main/vehicle.html", {"vehicles": vehicles})
 
 def whatcanido(response):
     return render(response, "main/whatcanido.html")

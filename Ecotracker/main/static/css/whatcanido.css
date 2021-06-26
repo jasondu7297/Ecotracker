@@ -19,28 +19,19 @@ body{background-color: aquamarine;}
 }
 
 model-viewer{
-    width: 50vw;
-    height: 40vw;
-    position: fixed;
-    top: 20.5vw;
-    left: 77.5%;
+    width: 30vw;
+    height: 80vw;
+    position: absolute;
+    top: 64%;
+    left: 69%;
     transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
-    z-index: -2;
     overflow-y: hidden;
     --poster-color: transparent;
 }
 
-section{
-    height: 100vh;
-}
-
 .section{
-    position: absolute;
-    top: auto;
-    left: 50%;
-    transform: translate(-50%, -50%);
     animation: fadeIn 2s;
     -webkit-animation: fadeIn 2s;
     -moz-animation: fadeIn 2s;
@@ -53,7 +44,8 @@ section{
     100% {opacity:1;}
   }
 
-#section_1{
+.pad{
+    background-color: aquamarine;
 }
 
 strong{

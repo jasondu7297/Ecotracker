@@ -7,3 +7,4 @@ class Automobile(models.Model):
     emission = models.FloatField(default=0)
     carbon_rating = models.FloatField()
     smog_rating = models.FloatField()
+    thumbnail = models.URLField(default="https://www.solidbackgrounds.com/images/950x350/950x350-vermilion-cinnabar-solid-color-background.jpg")

@@ -72,11 +72,25 @@ function calcRoute(directionsService, directionsRenderer) {
   }
 
   directionsService.route(request, function(response, status) {
+      let emission = 0;
       if (status == 'OK'){
         // render map
         directionsRenderer.setDirections(response);
         console.log(response.routes[0].legs[0].distance.value);
-        fetch('/cereal').then(response => response.json()).then(data => console.log(data));
+        fetch('/cereal')
+        .then(response =>
+         response.json()
+        )
+        .then(data => {
+          var target = document.getElementById('car_type');
+          for (let i = 0; i < data.length; ++i) {
+            if (data[i]["vehicle_type"] == target) {
+              emission = data[i]["emission"];
+              break;
+            }
+          }
+          console.log(emission);
+        });
         
         if (response.routes.length > 2) {
           // if there is more than 1 alternate route, create new option
@@ -116,7 +130,9 @@ function alternateRoute (directionsService, directionsRenderer) {
       directionsRenderer.setRouteIndex(routenum);
       console.log(response.routes[routenum].legs[0].distance.value);
       //research
-      fetch('/cereal').then(response => response.json()).then(data => console.log(data));
+      
+      // console.log(emissions[0])
+      
     }
   })
 }

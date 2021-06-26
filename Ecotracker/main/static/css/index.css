@@ -1,0 +1,76 @@
+body{
+    background-color: #B8acd8;
+    background-blend-mode: screen;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#earth{
+    width: 100vw;
+    height: 80vw;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 124%;
+    z-index: -1;
+    --poster-color: transparent;
+  
+    animation: fadeEarth 1.5s;
+    -webkit-animation: fadeEarth 1.5s;
+    -moz-animation: fadeEarth 1.5s;
+    -o-animation: fadeEarth 1.5s;
+    -ms-animation: fadeEarth 1.5s;
+  }
+  @keyframes fadeEarth {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+#new_section{
+    height: 100vh;
+}
+
+#jump{
+height: 100vh;
+background-color: #63759c;
+}
+
+#arrow{
+transform: translate(-50%, -50%);
+width: 3vw;
+height: 2vw;
+color: black;
+
+-webkit-animation: fade 2s;
+-moz-animation: fade 2s;
+-o-animation: fade 2s;
+-ms-animation: fade 2s;
+}
+@keyframes fade {
+0% {opacity:0;}
+50% {opacity:0;}
+100% {opacity:1;}
+
+}
+
+.jump {
+position: absolute;
+top: 94.5%;
+left: 50%;
+animation: arrow 2s linear infinite;
+}
+@keyframes arrow{
+0%{
+    transform: translateY(-5px);
+}
+50%{
+    transform: translateY(5px);
+}
+100%{
+    transform: translateY(-5px);
+}
+}

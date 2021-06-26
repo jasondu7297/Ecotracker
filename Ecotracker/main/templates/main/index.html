@@ -1,2 +1,28 @@
 {% extends "main/base.html" %}
 {% load static %}
+
+{% block head_css %}
+{{ block.super }}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock head_css %}
+
+{% block content %}
+    <div class="jump banner">
+        <a href="#jump">
+            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>
+        </a>
+    </div>
+    
+    <model-viewer class="img-fluid float-right" loading="eager" poster="static/resources/background_earth.png" src="static/resources/EcotrackerReal.glb" id="earth" auto-rotate auto-rotate-delay="2325" camera-shadow-intensity="1.5" camera-orbit="90deg 85deg 75%">
+    </model-viewer>
+
+    <section id="new_section">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+{% endblock %}
+
+{% block footer_javascript %}
+{% endblock footer_javascript %}

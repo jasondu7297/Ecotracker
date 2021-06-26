@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'MyWebFont';
-    src: url('bold.otf');
+    src: url('../resources/bold.otf');
   }
   
   @font-face {
     font-family: 'kayak';
-    src: url('Kayak Sans Light.otf');
+    src: url('../resources/Kayak Sans Light.otf');
   }
   /*
    * Globals

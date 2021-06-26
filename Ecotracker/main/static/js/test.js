@@ -29,9 +29,10 @@ function initMap() {
       }
 
     autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'), autoOptions
+      document.getElementById('start'), autoOptions
       )
 
+    
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
         calcRoute(directionsService, directionsRenderer)
@@ -40,6 +41,7 @@ function initMap() {
     //listens for change in origin/destination
     document.getElementById('origin').addEventListener('change', onChangePathHandler)
     document.getElementById('destination').addEventListener('change', onChangePathHandler)
+    autocomplete.addListener('place_changed', onChangePathHandler)
 
       //so that user can select alternate routes
     const onChangeRouteHandler = function () {

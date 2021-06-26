@@ -31,6 +31,11 @@ function initMap() {
     document.getElementById('origin').addEventListener('change', onChangePathHandler)
     document.getElementById('destination').addEventListener('change', onChangePathHandler)
 
+      //so that user can select alternate routes
+    const onChangeRouteHandler = function () {
+        alternateRoute(directionsService, directionsRenderer);
+    };
+        document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
 }
 
 // takes the user route and calculates the 2-3 best routes
@@ -52,10 +57,45 @@ function calcRoute(directionsService, directionsRenderer) {
     if (status == 'OK'){
       // render map
       directionsRenderer.setDirections(response);
+      
+      if (response.routes.length > 2) {
+        // if there is more than 1 alternate route, create new option
+        var dropdown = document.getElementById("routeOption");
+        var newRoute = document.createElement("option");
+        var index = response.routes[response.routes.length - 1];
+        newRoute.text = 'Route ' + response.routes.length
+        newRoute.value = response.routes.length
+        dropdown.add(newRoute);
+      } 
     }
 
     else {
       alert('Request failed due to ' + status)
     }
+  })
+}
+
+// when user changes route
+function alternateRoute (directionsService, directionsRenderer) {
+  var request = {
+    origin: {
+      query: document.getElementById('origin').value,
+    },
+    destination: {
+      query: document.getElementById('destination').value,
+    },
+    travelMode: google.maps.TravelMode.DRIVING,
+    provideRouteAlternatives: true
+  }
+
+  directionsService.route(request, function(response, status){
+    if (status == 'OK'){
+      // sets route based off of route selected from dropdown
+      var routenum = document.getElementById('routeOption').value - 1
+      directionsRenderer.setDirections(response);
+      directionsRenderer.setRouteIndex(routenum);
+      
+    }
+
   })
 }

@@ -7,12 +7,18 @@
 
 
 #background{
-    border:  1px solid black;
-    height: 500px;
-    width: 1400px;
+    height: 2vw;
+    width: 2vw;
     position: absolute;
     top: 52.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(233, 179, 60);
+    padding-top: 10vw;
+    padding-left: 15vw;
+    border-radius: 12vw;
+}
+
+#carmodel{
+    
 }

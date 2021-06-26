@@ -1,47 +1,9 @@
 from django.db import models
 
-class HatchbackOrSedan(models.Model):
+
+class Automobile(models.Model):
+    vehicle_type = models.CharField(max_length=255)
     combined = models.FloatField()
-    emission = models.FloatField()
+    emission = models.FloatField(default=0)
     carbon_rating = models.FloatField()
     smog_rating = models.FloatField()
-
-
-class Coupe(models.Model):
-    combined = models.FloatField()
-    emission = models.FloatField() 
-    carbon_rating = models.FloatField()
-    smog_rating = models.FloatField()
-
-
-class SportsCar(models.Model):
-    combined = models.FloatField()
-    emission = models.FloatField()
-    carbon_rating = models.FloatField()
-    smog_rating = models.FloatField()
-
-
-class MinivanOrSUV(models.Model):
-    combined = models.FloatField()
-    emission = models.FloatField()
-    carbon_rating = models.FloatField()
-    smog_rating = models.FloatField()
-
-
-class PickupTruck(models.Model):
-    combined = models.FloatField()
-    emission = models.FloatField()
-
-    carbon_rating = models.FloatField()
-    smog_rating = models.FloatField()
-
-class Crossover(models.Model):
-    combined = models.FloatField()
-    emission = models.FloatField()
-    carbon_rating = models.FloatField()
-    smog_rating = models.FloatField()
-
-
-
-
-

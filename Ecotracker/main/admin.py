@@ -1,17 +1,10 @@
 from django.contrib import admin
-from .models import HatchbackOrSedan, Coupe, SportsCar, MinivanOrSUV, PickupTruck, Crossover
+
+from .models import Automobile
+
+class AutomobileAdmin(admin.ModelAdmin):
+    list_display = ('vehicle_type', 'combined', 'emission', 'carbon_rating', 'smog_rating',)
 
 
 
-admin.site.register(HatchbackOrSedan)
-
-admin.site.register(Coupe)
-admin.site.register(SportsCar)
-admin.site.register(MinivanOrSUV)
-admin.site.register(PickupTruck)
-admin.site.register(Crossover)
-
-
-
-
-
+admin.site.register(Automobile, AutomobileAdmin)

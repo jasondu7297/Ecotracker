@@ -1,6 +1,35 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('../resources/bold.otf');
+  }
+  
+@font-face {
+  font-family: 'kayak';
+  src: url('../resources/Kayak Sans Light.otf');
+}
+
+h1{
+    font-family: 'MyWebFont';
+}
+
+
 .section{
     position: absolute;
-    top: 40%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    50% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+section{
+    background-color: grey;
 }

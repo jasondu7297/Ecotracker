@@ -1,4 +1,8 @@
 #map{
     height: 30vw;
-    width: 30vw;
+    width: 50vw;
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

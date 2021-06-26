@@ -22,10 +22,46 @@
   </head>
   <body>
     <div id='map'></div>
+        <div id="floating-panel">
+        <b>Start: </b>
+        <select id="origin" >
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+        <b>End: </b>
+        <select id="destination">
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+        </div>
+    </div>
+    <!-- <input id='origin'></input>
+    <input id='destination'></input> -->
+
 {% endblock %}
 
 {% block footer_javascript %}
-    <script src="../static/js/tracker.js"></script>
+    <script src="../static/js/test.js"></script>
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0KjJLF2X4ng7kEbBB7YxtZFbNy8kz-k&callback=initMap&libraries=&v=weekly"
     async

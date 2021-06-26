@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('bold.otf');
+  }
+  
+  @font-face {
+    font-family: 'kayak';
+    src: url('Kayak Sans Light.otf');
+  }
+  /*
+   * Globals
+   */
+  
+  /* Custom default button */
+  .btn-secondary,
+  .btn-secondary:hover
+  .btn-secondary:focus {
+    color: #333;
+    text-shadow: none; /* Prevent inheritance from `body` */
+  }
+  
+  
+  /*
+   * Base structure
+   */
+  
+  html{
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    text-shadow: 0 .02rem .1rem rgba(0, 0, 0, .5);
+    background-color: #B8acd8;
+    background-blend-mode: screen;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .cover-container {
+    max-width: 100em;
+  }
+  
+  
+  /*
+   * Header
+   */
+  
+  h3{
+    font-family: 'MyWebFont';
+    margin-top: 3rem;
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    50% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  .first{
+    animation: fadeFirst 3s;
+    -webkit-animation: fadeFirst 3s;
+    -moz-animation: fadeFirst 3s;
+    -o-animation: fadeFirst 3s;
+    -ms-animation: fadeFirst 3s;
+  }
+  @keyframes fadeFirst {
+    0% {opacity:0;}
+    66.7% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  .second{
+    animation: fadeSecond 3.2s;
+    -webkit-animation: fadeSecond 3.2s;
+    -moz-animation: fadeSecond 3.2s;
+    -o-animation: fadeSecond 3.2s;
+    -ms-animation: fadeSecond 3.2s;
+  }
+  @keyframes fadeSecond {
+    0% {opacity:0;}
+    66% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  .third{
+    animation: fadeThird 3.4s;
+    -webkit-animation: fadeThird 3.4s;
+    -moz-animation: fadeThird 3.4s;
+    -o-animation: fadeThird 3.4s;
+    -ms-animation: fadeThird 3.4s;
+  }
+  @keyframes fadeThird {
+    0% {opacity:0;}
+    66% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  .fourth{
+    animation: fadeThird 3.6s;
+    -webkit-animation: fadeThird 3.6s;
+    -moz-animation: fadeThird 3.6s;
+    -o-animation: fadeThird 3.6s;
+    -ms-animation: fadeThird 3.6s;
+  }
+  @keyframes fadeThird {
+    0% {opacity:0;}
+    66% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  .nav-masthead .nav-link {
+    font-family: 'kayak';
+    letter-spacing: 2.5px;
+    margin-top: 2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1);
+    background-color: transparent;
+    border-bottom: .185rem solid transparent;
+  }
+  
+  .nav-masthead .nav-link:hover,
+  .nav-masthead .nav-link:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+  }
+  
+  .nav-masthead .active {
+    color: #000000;
+    border-bottom-color: #000000;
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  

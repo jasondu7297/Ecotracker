@@ -13,13 +13,17 @@
 {% endblock %}
 
 {% block content %}
-    <div class="section container my-5">
-        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-        <div class="col-lg-8 p-3 p-lg-5">
+    <div class="block section container my-5">
+        
+
+        <div class="block row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="block col-lg-8 p-3 p-lg-5">
             <h1 class="display-4 fw-bold lh-1 mb-3">Vehicle fumes are nasty...<br> So now what?</h1>
             <p class="lead mb-3">Lowering fuel consumption doesn't always mean getting a new car. Follow our 8 tips below to a brighter, healthier Earth!</p>
+            <model-viewer src="../static/resources/Carlineup.glb" id="lineup" camera-orbit="180deg 0deg 100%">
+            </model-viewer>
         </div>
-
+        
         <div class="col-lg-11 p-3 p-lg-5 pt-lg-3 align-items-center">
             <div id="section_1">
                 <font size="+2" ><strong>First of all: Drive only when needed </strong><br></font>

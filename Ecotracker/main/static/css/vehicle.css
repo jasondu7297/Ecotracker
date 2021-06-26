@@ -6,21 +6,23 @@
 } */
 
 
-#background{
+#carouselExampleIndicators{
     height: 60%;
     width: 70%;
     position: absolute;
-    top: 52.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(233, 179, 60);
-    padding-top: 7%;
-    padding-left: 10%;
-    border-radius: 5px;
+    top: 20%;
+    margin-left: 15%;
+    margin-bottom: 10%;
+
 }
 
-#carouselExampleIndicators{
+
+#model{
+    border: black solid 4px;
+    margin: 10%;
+    width: 30%;
+    height: 100px; 
     position: absolute;
-    height: 14%;
-    width: 34%;
+    top: 10%;
 }
+

@@ -16,9 +16,23 @@ h1{
     size: +7;
 }
 
+model-viewer{
+    width: 50vw;
+    height: 80vw;
+    position: absolute;
+    top: 20%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 124%;
+    z-index: -1;
+    overflow: hidden;
+    --poster-color: transparent;
+}
+
 .section{
     position: absolute;
-    top: 120%;
+    top: 150%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: fadeIn 2s;

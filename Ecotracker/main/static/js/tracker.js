@@ -44,8 +44,27 @@ function initMap() {
     var directionsService = new google.maps.DirectionsService();
 
     //autocomplete for origin
-    // var autoOptions = 
-    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autoOrigin'))
+    var autoOptions = {
+            componentRestrictions: { country: ['us'. 'ca'] },
+            fields: ["formatted_address", "geometry", "name"],
+    }
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autoOrigin'), autoOptions)
+
+    autocomplete.addListener('place_changed', onPlaceChanged)
+
+    function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        
+        // tests whether user selected a prediction or entered text that didnt result in a prediction 
+        if (!place.geometery) {
+            document.getElementById('autoOrigin').placeholder = 
+            'Please enter a starting point' ;
+        }
+        // if valid place
+        else { 
+            document.getElementById('autoDestination').innerHTML = place.name;
+        }
+    }
 
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {

@@ -11,7 +11,5 @@ def tracker(response):
 def vehicle(response):
     return render(response, "main/vehicle.html")
 
-def whatcanido(reponse):
-    return render(reponse, "main/whatcanido.html")
-
-
+def whatcanido(response):
+    return render(response, "main/whatcanido.html")

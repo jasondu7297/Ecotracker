@@ -6,6 +6,13 @@
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
 {% endblock head_css %}
 
+{% block navbar %}
+    <a class="nav-link active first" aria-current="page" href="/">Home</a>
+    <a class="nav-link second" href="/tracker">Tracker</a>
+    <a class="nav-link third" href="/vehicle">Vehicle Info</a>
+    <a class="nav-link fourth" href="/whatcanido">What Can I Do</a>
+{% endblock %}
+
 {% block content %}
     <div class="jump banner">
         <a href="#new_section">

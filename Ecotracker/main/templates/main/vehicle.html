@@ -4,6 +4,13 @@
 {{ block.super }}
 {% endblock head_css %}
 
+{% block navbar %}
+    <a class="nav-link first" aria-current="page" href="/">Home</a>
+    <a class="nav-link second" href="/tracker">Tracker</a>
+    <a class="nav-link active third" href="/vehicle">Vehicle Info</a>
+    <a class="nav-link fourth" href="/whatcanido">What Can I Do</a>
+{% endblock %}
+
 {% block content %}
 
 {% endblock %} 

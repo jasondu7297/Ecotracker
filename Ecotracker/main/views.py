@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import requests
 
 # Create your views here.
 def index(response):
@@ -13,3 +14,9 @@ def vehicle(response):
 
 def whatcanido(response):
     return render(response, "main/whatcanido.html")
+
+#def api(request):
+ #  url = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0KjJLF2X4ng7kEbBB7YxtZFbNy8kz-k&callback=initMap&libraries=&v=weekly"
+ #  response = requests.get(url, headers={'Authorization':'Bearer %s' % 'access_token'}).json()
+
+ #  return render(request, 'tracker.html', {'response':response})

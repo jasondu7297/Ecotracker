@@ -39,14 +39,15 @@ p{
     z-index: -1;
     --poster-color: transparent;
   
-    animation: fadeEarth 1.5s;
-    -webkit-animation: fadeEarth 1.5s;
-    -moz-animation: fadeEarth 1.5s;
-    -o-animation: fadeEarth 1.5s;
-    -ms-animation: fadeEarth 1.5s;
+    animation: fadeEarth 2.25s;
+    -webkit-animation: fadeEarth 2.25s;
+    -moz-animation: fadeEarth 2.25s;
+    -o-animation: fadeEarth 2.25s;
+    -ms-animation: fadeEarth 2.25s;
   }
   @keyframes fadeEarth {
     0% {opacity:0;}
+    50% {opacity:0;}
     100% {opacity:1;}
   }
 
@@ -65,10 +66,11 @@ width: 3vw;
 height: 2vw;
 color: black;
 
--webkit-animation: fade 2s;
--moz-animation: fade 2s;
--o-animation: fade 2s;
--ms-animation: fade 2s;
+animation: arrow 2.25s;
+-webkit-animation: fade 2.25s;
+-moz-animation: fade 2.25s;
+-o-animation: fade 2.25s;
+-ms-animation: fade 2.25s;
 }
 @keyframes fade {
 0% {opacity:0;}

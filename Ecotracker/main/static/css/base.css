@@ -31,12 +31,6 @@
   
   body {
     text-shadow: 0 .02rem .1rem rgba(0, 0, 0, .5);
-    background-color: #B8acd8;
-    background-blend-mode: screen;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   .cover-container {

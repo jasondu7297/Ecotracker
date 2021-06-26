@@ -1,6 +1,18 @@
-.slideshow{
+/* .slideshow{
     position: absolute;
     top: 52.5%;
     left: 50%;
     transform: translate(-50%, -50%);
+} */
+
+
+#background{
+    border:  1px solid black;
+    height: 500px;
+    width: 1400px;
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(233, 179, 60);
 }

@@ -1,6 +1,5 @@
 
 function initMap() {
-
     // map 
     var ottawa = new google.maps.LatLng(45.424721, -75.695000)
 
@@ -25,7 +24,7 @@ function initMap() {
 
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
-        calcRoute(directionsRenderer, directionsService)
+        calcRoute(directionsService, directionsRenderer)
     };
 
     //listens for change in origin/destination
@@ -35,7 +34,8 @@ function initMap() {
 }
 
 // takes the user route and calculates the 2-3 best routes
-function calcRoute (directionsService, directionsRenderer) {
+function calcRoute(directionsService, directionsRenderer) {
+  console.log('hi')
 
   var request = {
     origin: {
@@ -59,28 +59,3 @@ function calcRoute (directionsService, directionsRenderer) {
     }
   })
 }
-  
-  // when user changes route
-  function alternateRoute (directionsService, directionsRenderer) {
-    var request = {
-      origin: {
-        query: document.getElementById('origin').value,
-      },
-      destination: {
-        query: document.getElementById('destination').value,
-      },
-      travelMode: google.maps.TravelMode.DRIVING,
-      provideRouteAlternatives: true
-    }
-  
-    directionsService.route(request, function(response, status){
-      if (status == 'OK'){
-        // sets route based off of route selected from dropdown
-        var routenum = document.getElementById('routeOption').value - 1
-        directionsRenderer.setDirections(response);
-        directionsRenderer.setRouteIndex(routenum);
-        
-      }
-  
-    })
-  }

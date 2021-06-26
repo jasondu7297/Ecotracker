@@ -20,9 +20,9 @@ body{background-color: aquamarine;}
 
 model-viewer{
     width: 50vw;
-    height: 60vw;
+    height: 40vw;
     position: fixed;
-    top: 25%;
+    top: 20.5vw;
     left: 77.5%;
     transform: translate(-50%, -50%);
     max-width: 100%;
@@ -32,9 +32,13 @@ model-viewer{
     --poster-color: transparent;
 }
 
+section{
+    height: 100vh;
+}
+
 .section{
     position: absolute;
-    top: 118.5%;
+    top: auto;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: fadeIn 2s;

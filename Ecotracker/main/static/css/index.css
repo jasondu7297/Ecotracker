@@ -51,8 +51,8 @@ p{
     100% {opacity:1;}
   }
 
-#new_section{
-    height: 100vh;
+section{
+    height: 1000vh;
 }
 
 #jump{

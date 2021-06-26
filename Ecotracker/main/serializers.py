@@ -6,5 +6,5 @@ class AutomobileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Automobile
         fields = (
-            'emission'
+            'emission',
         )

@@ -46,8 +46,6 @@ function initMap() {
     };
 
     //listens for change in origin/destination
-    document.getElementById('origin').addEventListener('change', onChangePathHandler)
-    document.getElementById('destination').addEventListener('change', onChangePathHandler)
     autocompleteS.addListener('place_changed', onChangePathHandler)
     autocompleteE.addListener('place_changed', onChangePathHandler)
 
@@ -78,6 +76,7 @@ function calcRoute(directionsService, directionsRenderer) {
         // render map
         directionsRenderer.setDirections(response);
         console.log(response.routes[0].legs[0].distance.value);
+        fetch('/cereal').then(response => response.json()).then(data => console.log(data));
         
         if (response.routes.length > 2) {
           // if there is more than 1 alternate route, create new option
@@ -116,8 +115,8 @@ function alternateRoute (directionsService, directionsRenderer) {
       directionsRenderer.setDirections(response);
       directionsRenderer.setRouteIndex(routenum);
       console.log(response.routes[routenum].legs[0].distance.value);
-      
+      //research
+      fetch('/cereal').then(response => response.json()).then(data => console.log(data));
     }
-
   })
 }

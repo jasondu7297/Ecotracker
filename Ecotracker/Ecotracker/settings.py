@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'django_google_maps'
+    'django_google_maps',
+    'rest_framework',
+    'rest_framework.authtoken',
     
 
 ]

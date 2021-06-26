@@ -2,6 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from .models import Automobile
+from .serializers import AutomobileSerializer
+ 
+class AutomobileData(APIView):
+    def get(self, request, format=None):
+        automobile = Automobile.objects.all()
+        serializer = AutomobileSerializer(automobile, many=True)
+        return Response(serializer.data)
+
 # Create your views here.
 def index(response):
     return render(response, "main/index.html")

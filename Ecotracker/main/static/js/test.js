@@ -37,22 +37,18 @@ function initMap() {
 
     const input = document.getElementById("start");
     const searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    let markers = [];
+    
+    
 
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
         calcRoute(directionsService, directionsRenderer)
     };
 
-    const settingStart = function () {
-      setStart(searchBox,map)
-    }
-
     //listens for change in origin/destination
     document.getElementById('origin').addEventListener('change', onChangePathHandler)
     document.getElementById('destination').addEventListener('change', onChangePathHandler)
-    autocompleteS.addListener('place_changed', settingStart)
+    autocompleteS.addListener('place_changed', onChangePathHandler)
     autocompleteE.addListener('place_changed', onChangePathHandler)
 
       //so that user can select alternate routes
@@ -61,15 +57,6 @@ function initMap() {
     };
         document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
 }
-
-function setStart(searchBox,map) {
-  // Create the search box and link it to the UI element.
-  
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
-    const places = searchBox.getPlaces();
-    console.log(places)
-  };
 
 // takes the user route and calculates the 2-3 best routes
 function calcRoute(directionsService, directionsRenderer) {
@@ -90,6 +77,7 @@ function calcRoute(directionsService, directionsRenderer) {
       if (status == 'OK'){
         // render map
         directionsRenderer.setDirections(response);
+        console.log(response.routes[0].legs[0].distance.value);
         
         if (response.routes.length > 2) {
           // if there is more than 1 alternate route, create new option
@@ -112,10 +100,10 @@ function calcRoute(directionsService, directionsRenderer) {
 function alternateRoute (directionsService, directionsRenderer) {
   var request = {
     origin: {
-      query: document.getElementById('origin').value,
+      query: document.getElementById('start').value,
     },
     destination: {
-      query: document.getElementById('destination').value,
+      query: document.getElementById('end').value,
     },
     travelMode: google.maps.TravelMode.DRIVING,
     provideRouteAlternatives: true
@@ -127,6 +115,7 @@ function alternateRoute (directionsService, directionsRenderer) {
       var routenum = document.getElementById('routeOption').value - 1
       directionsRenderer.setDirections(response);
       directionsRenderer.setRouteIndex(routenum);
+      console.log(response.routes[routenum].legs[0].distance.value);
       
     }
 

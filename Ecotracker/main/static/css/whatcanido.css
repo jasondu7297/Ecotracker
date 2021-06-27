@@ -12,7 +12,9 @@ h1{
     font-family: 'MyWebFont';
 }
 
-body{background-color: aquamarine;}
+body{
+    background-color: #A8f3d9;
+}
 
 .p1{
     size: +7;
@@ -45,7 +47,7 @@ model-viewer{
   }
 
 .pad{
-    background-color: aquamarine;
+    background-color: #A8f3d9;
 }
 
 strong{

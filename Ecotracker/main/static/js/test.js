@@ -50,14 +50,14 @@ function initMap() {
 
     //so that user can select alternate car
     const onCarChange = function () {
-      diffCar(directionsService, directionsRenderer)
+      alternateCarorRoute(directionsService, directionsRenderer)
     };
 
     //listens for change in origin/destination
     autocompleteS.addListener('place_changed', onChangePathHandler)
     autocompleteE.addListener('place_changed', onChangePathHandler)
     document.getElementById('car_type').addEventListener("change", onCarChange)
-    document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
+    document.getElementById("routeOption").addEventListener("change", onCarChange);
 
         
 }
@@ -79,6 +79,8 @@ function calcRoute(directionsService, directionsRenderer) {
 
   directionsService.route(request, function(response, status) {
       let emission = 0;
+      var img = document.createElement("img"); 
+ 
       if (status == 'OK'){
         // render map
         directionsRenderer.setDirections(response);
@@ -92,9 +94,18 @@ function calcRoute(directionsService, directionsRenderer) {
           for (let i = 0; i < data.length; ++i) {
             if (data[i]["vehicle_type"] == target) {
               emission = data[i]["emission"];
-              evImpact = emission * response.routes[0].legs[0].distance.value / 1000
+              evImpact = Math.trunc(emission * response.routes[0].legs[0].distance.value / 1000000)
+              evCoal = Math.trunc(evImpact * 1.12)
+              evSmart = Math.trunc(evImpact * 122)
+              evHome = evImpact * 0.00012
               console.log(evImpact) 
-              document.getElementById('impact').innerHTML = 'Grams of CO2 per km: ' + evImpact;
+              document.getElementById('impact').innerHTML = 'Kilograms of CO2 released: ' + evImpact;
+              img.src = "image.png"; 
+              var src = document.getElementById("x"); 
+              src.appendChild(img); 
+              document.getElementById('coal').innerHTML = 'Pounds of coal: ' + evCoal
+              document.getElementById('smartphones').innerHTML = 'Smartphones charged: ' + evSmart
+              document.getElementById('home').innerHTML = "Home's energy use of one year: " + evHome
             }
           }
           console.log(emission);
@@ -117,36 +128,9 @@ function calcRoute(directionsService, directionsRenderer) {
   })
 }
 
-// when user changes route
-function alternateRoute (directionsService, directionsRenderer) {
-  var request = {
-    origin: {
-      query: document.getElementById('start').value,
-    },
-    destination: {
-      query: document.getElementById('end').value,
-    },
-    travelMode: google.maps.TravelMode.DRIVING,
-    provideRouteAlternatives: true
-  }
-
-  directionsService.route(request, function(response, status){
-    if (status == 'OK'){
-      // sets route based off of route selected from dropdown
-      var routenum = document.getElementById('routeOption').value - 1
-      directionsRenderer.setDirections(response);
-      directionsRenderer.setRouteIndex(routenum);
-      console.log(response.routes[routenum].legs[0].distance.value);
-      //research
-      
-      // console.log(emissions[0])
-      
-    }
-  })
-}
 
 // takes the user route and calculates the 2-3 best routes
-function diffCar(directionsService, directionsRenderer) {
+function alternateCarorRoute(directionsService, directionsRenderer) {
   console.log('car')
 
   var request = {
@@ -163,8 +147,12 @@ function diffCar(directionsService, directionsRenderer) {
   directionsService.route(request, function(response, status) {
       let emission = 0;
       if (status == 'OK'){
+        var routenum = document.getElementById('routeOption').value - 1
         // render map
         directionsRenderer.setDirections(response);
+        directionsRenderer.setRouteIndex(routenum);
+        console.log(response.routes[routenum].legs[0].distance.value);
+        
         console.log(response.routes[0].legs[0].distance.value);
         fetch('/cereal')
         .then(response =>
@@ -175,9 +163,15 @@ function diffCar(directionsService, directionsRenderer) {
           for (let i = 0; i < data.length; ++i) {
             if (data[i]["vehicle_type"] == target) {
               emission = data[i]["emission"];
-              evImpact = emission * response.routes[0].legs[0].distance.value / 1000
+              evImpact = emission * response.routes[routenum].legs[0].distance.value / 1000000
+              evCoal = evImpact * 1.12
+              evSmart = evImpact * 122
+              evHome = evImpact * 0.00012 
               console.log(evImpact) 
-              document.getElementById('impact').innerHTML = 'Grams of CO2 per km: ' + evImpact;
+              document.getElementById('impact').innerHTML = 'Kilograms of CO2 released: ' + evImpact;
+              document.getElementById('coal').innerHTML = evCoal
+              document.getElementById('smartphones').innerHTML = evSmart
+              document.getElementById('home').innerHTML = evHome
             }
           }
           console.log(emission);

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s64*60ef#2=iabh2=u=p6d6e19drd4!r6mx3k(+1azz1d-us+)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','ecotrackerlite.herokuapp.com']
+ALLOWED_HOSTS = []
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDgIWNVzeFWWr0ecFoBuEI-qDSyImx7cYk'
 

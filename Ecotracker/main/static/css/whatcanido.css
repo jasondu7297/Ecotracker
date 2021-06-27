@@ -22,9 +22,9 @@ body{
 
 model-viewer{
     width: 30vw;
-    height: 80vw;
+    height: 75vw;
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 69%;
     transform: translate(-50%, -50%);
     max-width: 100%;

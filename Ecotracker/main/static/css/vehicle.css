@@ -7,6 +7,7 @@ body{background-color: #Ebe6e3;
 }
 
 #carouselIndicators{
+    z-index: -1;
     height: 85%;
     width: 70%;
     position: absolute;
@@ -17,11 +18,13 @@ body{background-color: #Ebe6e3;
 }
   
   .carousel .carousel-indicators .active {
+    z-index: -1;
     background-color: rgba(70,70,70,.5);
   }
 
 
 #vehicle{
+    z-index: 0;
     width: 25vw;
     height: 25vw;
     position: absolute;
@@ -36,6 +39,7 @@ main{
     width: 100vw;
     height: 34vw;
     position: absolute;
+    z-index: -1;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -52,6 +56,7 @@ main{
 }
 
 .test{
+    z-index: 0;
     width: 99%;
     height: 95%;
     position: absolute;
@@ -61,6 +66,7 @@ main{
 }
 
 #model{
+    z-index: 0;
     margin: 10%;
     position: absolute;
     top: 10%;
@@ -69,6 +75,7 @@ main{
 }
 
 .card{
+    z-index: 0;
     width: 22vw;
     height: 23vw;
     position: absolute;
@@ -81,6 +88,7 @@ main{
 }
 
 .card-body{
+    z-index: 0;
     width: 20vw;
     height: 15vw;
     position: absolute;
@@ -90,9 +98,11 @@ main{
 }
 
 .carousel-control-prev-icon {
+    z-index: -2;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
    }
    
 .carousel-control-next-icon {
+    z-index: -2;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }

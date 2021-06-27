@@ -23,7 +23,7 @@ function initMap() {
 
     // autocomplete for origin
     var autoOptions = {
-      componentRestrictions: {country: 'us'},
+      componentRestrictions: {country: ['us', 'ca']},
       fields: ["formatted_address", "geometry", "name"],
       }
 
@@ -79,7 +79,6 @@ function calcRoute(directionsService, directionsRenderer) {
 
   directionsService.route(request, function(response, status) {
       let emission = 0;
-      var img = document.createElement("img"); 
  
       if (status == 'OK'){
         // render map
@@ -99,13 +98,11 @@ function calcRoute(directionsService, directionsRenderer) {
               evSmart = Math.trunc(evImpact * 122)
               evHome = evImpact * 0.00012
               console.log(evImpact) 
-              document.getElementById('impact').innerHTML = 'Kilograms of CO2 released: ' + evImpact;
-              img.src = "image.png"; 
-              var src = document.getElementById("x"); 
-              src.appendChild(img); 
+              document.getElementById('co2').innerHTML = 'Kilograms of CO2 released: ' + evImpact
               document.getElementById('coal').innerHTML = 'Pounds of coal: ' + evCoal
               document.getElementById('smartphones').innerHTML = 'Smartphones charged: ' + evSmart
-              document.getElementById('home').innerHTML = "Home's energy use of one year: " + evHome
+              document.getElementById('home').innerHTML = "Home's energy use of one year: " + evHome.toFixed(4)
+ 
             }
           }
           console.log(emission);
@@ -146,14 +143,15 @@ function alternateCarorRoute(directionsService, directionsRenderer) {
 
   directionsService.route(request, function(response, status) {
       let emission = 0;
+      var routenum = document.getElementById('routeOption').value - 1
       if (status == 'OK'){
-        var routenum = document.getElementById('routeOption').value - 1
+        
         // render map
         directionsRenderer.setDirections(response);
         directionsRenderer.setRouteIndex(routenum);
         console.log(response.routes[routenum].legs[0].distance.value);
         
-        console.log(response.routes[0].legs[0].distance.value);
+        console.log(response.routes[routenum].legs[0].distance.value);
         fetch('/cereal')
         .then(response =>
          response.json()
@@ -163,15 +161,16 @@ function alternateCarorRoute(directionsService, directionsRenderer) {
           for (let i = 0; i < data.length; ++i) {
             if (data[i]["vehicle_type"] == target) {
               emission = data[i]["emission"];
-              evImpact = emission * response.routes[routenum].legs[0].distance.value / 1000000
-              evCoal = evImpact * 1.12
-              evSmart = evImpact * 122
-              evHome = evImpact * 0.00012 
+              evImpact = Math.trunc(emission * response.routes[routenum].legs[0].distance.value / 1000000)
+              evCoal = Math.trunc(evImpact * 1.12)
+              evSmart = Math.trunc(evImpact * 122)
+              evHome = evImpact * 0.00012
               console.log(evImpact) 
-              document.getElementById('impact').innerHTML = 'Kilograms of CO2 released: ' + evImpact;
-              document.getElementById('coal').innerHTML = evCoal
-              document.getElementById('smartphones').innerHTML = evSmart
-              document.getElementById('home').innerHTML = evHome
+              document.getElementById('co2').innerHTML = 'Kilograms of CO2 released: ' + evImpact
+              document.getElementById('coal').innerHTML = 'Pounds of coal: ' + evCoal
+              document.getElementById('smartphones').innerHTML = 'Smartphones charged: ' + evSmart
+              document.getElementById('home').innerHTML = "Home's energy use of one year: " + evHome.toFixed(4)
+ 
             }
           }
           console.log(emission);

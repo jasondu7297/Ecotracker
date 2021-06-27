@@ -21,17 +21,26 @@
     <title>Simple Map</title>
   </head>
   <body>
-    <div class = "container">
-    <input id='start'/>
-    <br> <br>
-    <input id='end'/>
     <div id='map'></div>
-      <select id='routeOption'>
-        <option value = '1'>Route 1</option>
-        <option value = '2'>Route 2</option>
-      </select>
+    <div class="bg-light rounded-3 section container shadow-lg">
+    <div class="col-lg-7 p-3 p-lg-5">
+    <h5>Please insert a starting location:</h5>
+    <input class="form-control" id='start'/>
+    <br> 
+    <h5>Please insert a destination:</h5>
+    <input class="form-control" id='end'/>
+    <br>
+    
+        <h5>Choose a route option that fits you:</h5>
+        <select class="form-select routes" aria-label="Default select example" id='routeOption'>
+            <option value = '1'>Route 1</option>
+            <option value = '2'>Route 2</option>
+        </select>
+        
+        <br>
 
-      <select id='car_type'>
+    <h5>What type of car do you drive?</h5>
+      <select class="form-select cartype" id='car_type'>
         <option value = 'Hatchback/Sedan'>Hatchback/Sedan</option>
         <option value = 'Coupe'>Coupe</option>
         <option value = 'Sports Car'>Sports Car</option>
@@ -40,13 +49,15 @@
         <option value = 'Pickup Truck'>Pickup Truck</option>
         <option value = 'Crossover'>Crossover</option>
       </select>
+      <div id='co2'></div>
+      <div id='coal'></div>
+      <div id='smartphones'></div>
+      <div id='home'></div>
     </div>
-    <div id='impact'>
-      <a id='x'></a>
     </div>
-    <div id='coal'></div>
-    <div id='smartphones'></div>
-    <div id='home'></div>
+    
+  </div>
+</main>
     
 
 

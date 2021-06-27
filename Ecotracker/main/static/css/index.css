@@ -3,6 +3,10 @@
     src: url('../resources/bold.otf');
   }
 
+html{
+    height: 100%;
+}
+
 body{
     background-color: #B8acd8;
     background-blend-mode: screen;
@@ -77,10 +81,10 @@ animation: arrow 2.25s;
 }
 
 .jump {
-position: absolute;
-top: 94.5%;
-left: 50%;
-animation: arrow 2s linear infinite;
+    position: absolute;
+    top: 94.5%;
+    left: 50%;
+    animation: arrow 2s linear infinite;
 }
 @keyframes arrow{
 0%{
@@ -92,4 +96,23 @@ animation: arrow 2s linear infinite;
 100%{
     transform: translateY(-5px);
 }
+}
+
+.section{
+    height: 100vh;
+}
+
+#below{
+    width: 100vw;
+    height: 80vw;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 124%;
+}
+
+button{
+    color: white; 
 }

@@ -38,8 +38,6 @@ function initMap() {
     const input = document.getElementById("start");
     const searchBox = new google.maps.places.SearchBox(input);
     
-    
-
     //so that route is calculated when user changes origin/destination
     const onChangePathHandler = function () {
         calcRoute(directionsService, directionsRenderer)
@@ -47,21 +45,20 @@ function initMap() {
 
     //so that user can select alternate routes
     const onChangeRouteHandler = function () {
-      alternateRoute(directionsService, directionsRenderer);
+      alternateRoute(directionsService, directionsRenderer)
+    };
 
-    //so that user can select alternate routes
+    //so that user can select alternate car
     const onCarChange = function () {
-      diffCar();
-    }
+      diffCar(directionsService, directionsRenderer)
+    };
 
     //listens for change in origin/destination
     autocompleteS.addListener('place_changed', onChangePathHandler)
     autocompleteE.addListener('place_changed', onChangePathHandler)
-    document.getElementById.addEventListener('change', onCarChange)
+    document.getElementById('car_type').addEventListener("change", onCarChange)
     document.getElementById("routeOption").addEventListener("change", onChangeRouteHandler);
 
-
-    };
         
 }
 
@@ -97,7 +94,7 @@ function calcRoute(directionsService, directionsRenderer) {
               emission = data[i]["emission"];
               evImpact = emission * response.routes[0].legs[0].distance.value / 1000
               console.log(evImpact) 
-              document.getElementById("test").innerHTML = 'Grams of CO2 per km: ' + evImpact;
+              document.getElementById('impact').innerHTML = 'Grams of CO2 per km: ' + evImpact;
             }
           }
           console.log(emission);
@@ -148,22 +145,47 @@ function alternateRoute (directionsService, directionsRenderer) {
   })
 }
 
-function onCarChange () {
-  console.log('Hi')
-  // let emission = 0;
-  //       // render map
-  //       fetch('/cereal')
-  //       .then(response =>
-  //        response.json()
-  //       )
-  //       .then(data => {
-  //         var target = document.getElementById('car_type').value;
-  //         for (let i = 0; i < data.length; ++i) {
-  //           if (data[i]["vehicle_type"] == target) {
-  //             emission = data[i]["emission"];
-  //             evImpact = emission * response.routes[0].legs[0].distance.value / 1000
-  //             console.log(evImpact) 
-  //             document.getElementById("test").innerHTML = 'Grams of CO2 per km: ' + evImpact;
-  //           }
-  //         console.log(emission);
+// takes the user route and calculates the 2-3 best routes
+function diffCar(directionsService, directionsRenderer) {
+  console.log('car')
+
+  var request = {
+    origin: {
+      query: document.getElementById('start').value,
+    },
+    destination: {
+      query: document.getElementById('end').value,
+    },
+    travelMode: google.maps.TravelMode.DRIVING,
+    provideRouteAlternatives: true
+  }
+
+  directionsService.route(request, function(response, status) {
+      let emission = 0;
+      if (status == 'OK'){
+        // render map
+        directionsRenderer.setDirections(response);
+        console.log(response.routes[0].legs[0].distance.value);
+        fetch('/cereal')
+        .then(response =>
+         response.json()
+        )
+        .then(data => {
+          var target = document.getElementById('car_type').value;
+          for (let i = 0; i < data.length; ++i) {
+            if (data[i]["vehicle_type"] == target) {
+              emission = data[i]["emission"];
+              evImpact = emission * response.routes[0].legs[0].distance.value / 1000
+              console.log(evImpact) 
+              document.getElementById('impact').innerHTML = 'Grams of CO2 per km: ' + evImpact;
+            }
+          }
+          console.log(emission);
+        });
+      }
+
+      else {
+        alert('Request failed due to ' + status)
+      }
+  })
 }

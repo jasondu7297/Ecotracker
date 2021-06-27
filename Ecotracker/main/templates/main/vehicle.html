@@ -3,7 +3,7 @@
 
 {% block head_css %}
 {{ block.super }}
-<link href="{% static 'css/vehicle.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/vehicle.css' %}" rel="stylesheet" type="text/css">
 {% endblock head_css %}
 
 {% block navbar %}
@@ -14,52 +14,62 @@
 {% endblock %}
 
 {% block content %}
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    {% for vehicle in vehicles %}
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide {{ forloop.counter }}" id="vehicle-carousel-button-{{ forloop.counter }}"></button>
-    {% endfor %}
-  </div>
-
-  <div class="carousel-inner">
-    {% for vehicle in vehicles %}
-      <div class="carousel-item" id="vehicle-carousel-{{ forloop.counter }}"}>
-        <img src="https://www.solidbackgrounds.com/images/950x350/950x350-vermilion-cinnabar-solid-color-background.jpg" class="d-block w-100" alt="{{ vehicle.vehicle_type }}">
-        <div class="card" style="width: 25rem; height: 22rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ vehicle.vehicle_type }}</h5>
-            <br><br>
-            <ul class="card-text">
-              <li>Average Combined City and Highway Consumption (L/100 km): {{ vehicle.combined }}</li>
-              <br>
-              <li>Carbon Dioxide Emissions (g/km): {{ vehicle.emission }}</li>
-              <br>
-              <li>NRC Carbon Dioxide Rating: {{ vehicle.carbon_rating }}</li>
-              <br>
-              <li>NRC Smog Rating: {{ vehicle.smog_rating }}</li>
-            </ul>
-          </div>
+    <main>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% for vehicle in vehicles %}
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" aria-label="Slide {{ forloop.counter }}" id="vehicle-carousel-button-{{ forloop.counter }}"></button>
+                {% endfor %}
         </div>
-        <div id="model">
-          <model-viewer src="{{ vehicle.thumbnail }}" poster="static/resources/background_earth.png" id="vehicle" camera-controls auto-rotate auto-rotate-delay="2325" shadow-intensity="1" camera-orbit="-45deg 85deg 88%"</model-viewer>
+
+        <div class="carousel-inner">
+            {% for vehicle in vehicles %}
+                <div class="carousel-item" id="vehicle-carousel-{{ forloop.counter }}"}>
+                    <img src="../static/resources/solidcolor.png" class="d-block w-100" alt="{{ vehicle.vehicle_type }}">
+                    <img class="test rounded" src="https://www.solidbackgrounds.com/images/640x480/640x480-unbleached-silk-solid-color-background.jpg" class="d-block w-100" alt="{{ vehicle.vehicle_type }}">
+
+                        <div id="test">
+                            <div class="card shadow-sm rounded">
+                                <div class="card-body">
+                                <h5 class="card-title">{{ vehicle.vehicle_type }}</h5>
+                                    <br>
+                                    <ul class="card-text">
+                                    <li>Average Combined City and Highway Consumption (L/100 km): {{ vehicle.combined }}</li>
+                                    <br>
+                                    <li>Carbon Dioxide Emissions (g/km): {{ vehicle.emission }}</li>
+                                    <br>
+                                    <li>NRC Carbon Dioxide Rating: {{ vehicle.carbon_rating }}</li>
+                                    <br>
+                                    <li>NRC Smog Rating: {{ vehicle.smog_rating }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+
+                <div id="model">
+                <model-viewer src="{{ vehicle.thumbnail }}" poster="static/resources/background_earth.png" id="vehicle" camera-controls auto-rotate auto-rotate-delay="2325" shadow-intensity="1" camera-orbit="-45deg 85deg 88%"</model-viewer>
+                </div>
+                </div>
+
+            {% endfor %}
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-      </div>
-    {% endfor %}
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
+    </main>
 
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    <script>
+    document.getElementById("vehicle-carousel-1").classList.add("active");
+    document.getElementById("vehicle-carousel-button-1").classList.add("active");
+    </script>
 
-<script>
-  document.getElementById("vehicle-carousel-1").classList.add("active");
-  document.getElementById("vehicle-carousel-button-1").classList.add("active");
-</script>
 {% endblock %} 
 {% block footer_javascript %}
 {% endblock footer_javascript %}

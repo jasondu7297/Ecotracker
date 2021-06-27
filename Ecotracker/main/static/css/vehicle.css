@@ -1,15 +1,9 @@
-/* .slideshow{
-    position: absolute;
-    top: 52.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
-body{
-    background-color: rgb(237, 150, 150);
+
+body{background-color: #Ebe6e3;
 }
 
 #carouselExampleIndicators{
-    height: 60%;
+    height: 85%;
     width: 70%;
     position: absolute;
     top: 20%;
@@ -29,23 +23,60 @@ body{
     --poster-color: transparent;
 }
 
+main{
+    width: 100vw;
+    height: 34vw;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade 2.25s;
+    -webkit-animation: fade 2.25s;
+    -moz-animation: fade 2.25s;
+    -o-animation: fade 2.25s;
+    -ms-animation: fade 2.25s;
+}
+@keyframes fade {
+    0% {opacity:0;}
+    50% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.test{
+    width: 99%;
+    height: 95%;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #model{
     margin: 10%;
-    width: 30%;
-    height: 100px; 
     position: absolute;
     top: 10%;
+    width: 30%;
+    height: 5vw; 
 }
 
 .card{
-    margin-left: 60%;
+    width: 22vw;
+    height: 23vw;
     position: absolute;
-    top: 10%;
-    margin-right: 20%;
-
+    top: 43.5%;
+    left: 72.5%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.card-body{
-    height: 70%;
 
+.card-body{
+    width: 20vw;
+    height: 15vw;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
 }

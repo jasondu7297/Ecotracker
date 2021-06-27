@@ -6,3 +6,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+.mapcontainer{
+    border: aquamarine, solid, 2px;
+}
